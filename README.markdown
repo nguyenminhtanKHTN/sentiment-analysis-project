@@ -117,7 +117,4 @@ sentiment_analysis_project/
      }
      ```
 
-## Next Steps
-- Use the API to predict sentiment on new reviews.
-- Explore improving the model (e.g., try other algorithms like Naive Bayes).
-- Extend the API to handle multiple reviews or integrate with a web frontend.
+- [x] Compare Logistic Regression, Naive Bayes, and LinearSVC (accuracy: ~0.88, ~0.85, ~0.89)
