@@ -1,0 +1,41 @@
+Thống kê dataset:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 50000 entries, 0 to 49999
+Data columns (total 3 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   review         50000 non-null  object
+ 1   sentiment      50000 non-null  object
+ 2   review_length  50000 non-null  int64 
+dtypes: int64(1), object(2)
+memory usage: 1.1+ MB
+
+
+Phân phối nhãn cảm xúc:
+sentiment
+positive    25000
+negative    25000
+Name: count, dtype: int64
+
+Thống kê độ dài đánh giá:
+count    50000.000000
+mean       231.156940
+std        171.343997
+min          4.000000
+25%        126.000000
+50%        173.000000
+75%        280.000000
+max       2470.000000
+Name: review_length, dtype: float64
+Kết quả huấn luyện mô hình:
+Accuracy: 0.89
+
+Báo cáo phân loại:
+              precision    recall  f1-score   support
+
+    Negative       0.90      0.87      0.89      4961
+    Positive       0.88      0.90      0.89      5039
+
+    accuracy                           0.89     10000
+   macro avg       0.89      0.89      0.89     10000
+weighted avg       0.89      0.89      0.89     10000

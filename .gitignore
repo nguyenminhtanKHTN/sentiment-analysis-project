@@ -1,0 +1,32 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Data (không commit dữ liệu lớn)
+data/raw
+data/processed
+!data/raw/.gitkeep
+!data/external/.gitkeep
+
+# Models (có thể bỏ nếu mô hình lớn)
+models/*.pkl
+
+# IDE
+.vscode/
+.idea/
+
+# Miscellaneous
+*.log
+*.DS_Store
