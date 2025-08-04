@@ -3,3 +3,4 @@ scikit-learn==1.5.1
 nltk==3.8.1
 matplotlib==3.9.1
 seaborn==0.13.2
+flask==2.2.5

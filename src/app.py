@@ -37,9 +37,20 @@ def predict():
         # Lấy dữ liệu từ request
         data = request.get_json()
         review = data.get('review', '')
+        model_name = data.get('model', 'logistic_regression')
+        model_path = {
+            'logistic_regression': f'{os.path.dirname(CURRENT_DIR)}/models/logistic_regression_model.pkl',
+            'naive_bayes': f'{os.path.dirname(CURRENT_DIR)}/models/naive_bayes_model.pkl',
+            'linear_svc': f'{os.path.dirname(CURRENT_DIR)}/models/linear_svc_model.pkl',
+        }
+        
+        if model_name not in model_path:
+            return jsonify({'error': 'Invalid model specified'}), 400
         
         if not review:
             return jsonify({'error': 'No review provided'}), 400
+        
+        model = joblib.load(model_path[model_name])
         
         # Tiền xử lý và vector hóa
         cleaned_review = preprocess_text(review)
@@ -64,6 +75,18 @@ def predict_batch():
     try:
         data = request.get_json()
         reviews = data.get('reviews', [])
+        model_name = data.get('model', 'logistic_regression')
+        
+        model_path = {
+            'logistic_regression': f'{os.path.dirname(CURRENT_DIR)}/models/logistic_regression_model.pkl',
+            'naive_bayes': f'{os.path.dirname(CURRENT_DIR)}/models/naive_bayes_model.pkl',
+            'linear_svc': f'{os.path.dirname(CURRENT_DIR)}/models/linear_svc_model.pkl',
+        }
+        
+        if model_name not in model_path:
+            return jsonify({'error': 'Invalid model specified'}), 400
+        
+        model = joblib.load(model_path[model_name])
         
         if not reviews:
             return jsonify({'error': 'No reviews provided'}), 400
