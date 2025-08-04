@@ -98,8 +98,26 @@ sentiment_analysis_project/
      jupyter notebook
      ```
    - Create and use the notebooks in the `notebooks/` folder to follow the project steps.
+     
+5. **Run the API**:
+   - Run the Flask API:
+     ```bash
+     python src/app.py
+     ```
+   - Send a POST request to `http://localhost:5000/predict` with JSON payload:
+     ```bash
+     curl -X POST -H "Content-Type: application/json" -d '{"review": "This movie was great!"}' http://localhost:5000/predict
+     ```
+   - Expected response:
+     ```json
+     {
+         "review": "This movie was great!",
+         "cleaned_review": "movie great",
+         "sentiment": "Positive"
+     }
+     ```
 
 ## Next Steps
-- Follow the notebooks in order: `data_exploration.ipynb` → `preprocessing.ipynb` → `model_training.ipynb`.
-- Use scripts in `src/` for reusable code.
-- Save models and results in `models/` and `results/` respectively.
+- Use the API to predict sentiment on new reviews.
+- Explore improving the model (e.g., try other algorithms like Naive Bayes).
+- Extend the API to handle multiple reviews or integrate with a web frontend.
